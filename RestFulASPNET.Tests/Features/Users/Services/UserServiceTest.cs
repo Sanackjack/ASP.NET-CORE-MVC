@@ -9,7 +9,7 @@ namespace RestFulASPNET.Tests.Features.Users.Services
 
 
         [Fact]
-        public void TestCase_CreateUser_Success()
+        public void Test_Case_CreateUser_Success()
         {
 
 

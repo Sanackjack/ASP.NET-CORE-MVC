@@ -40,7 +40,6 @@ namespace RestFulASPNET.Features.Users.Services
                 throw new ServiceNotFoundException(ExceptionCode.NOTFOUND_EXCEPTION, "user not found");
             }
 
-
             UserResponseModel userResponse = new UserResponseModel
             {
                 Name = user.Name,

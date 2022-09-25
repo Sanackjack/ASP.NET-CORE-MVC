@@ -2,17 +2,48 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.RestFulASPNET PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="RestFulASPNET/Features/Users/Services/UserService.cs">
+    <Files>
+      <File FileName="RestFulASPNET/Configs/ServiceConfiguration.cs" Line="1" Column="1" />
+      <File FileName="RestFulASPNET/Features/Home/Controllers/WeatherForecastController.cs" Line="17" Column="6" />
+      <File FileName="RestFulASPNET/Features/Users/Controllers/UserController.cs" Line="1" Column="1" />
+      <File FileName="RestFulASPNET/Features/Users/Models/UserRequestModel.cs" Line="1" Column="1" />
+      <File FileName="RestFulASPNET/Features/Users/Models/UserResponseModel.cs" Line="1" Column="1" />
+      <File FileName="RestFulASPNET/Features/Users/Services/IUserService.cs" Line="1" Column="1" />
+      <File FileName="RestFulASPNET/Features/Users/Services/UserService.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="RestFulASPNET" expanded="True" />
+          <Node name="RestFulASPNET" expanded="True">
+            <Node name="Solution Items" expanded="True" />
+            <Node name="RestFulASPNET" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="PackageDependencies" expanded="True" />
+              </Node>
+              <Node name="Configs" expanded="True" />
+              <Node name="Constants" expanded="True" />
+              <Node name="Features" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                </Node>
+                <Node name="Users" expanded="True">
+                  <Node name="Controllers" expanded="True" />
+                  <Node name="Models" expanded="True" />
+                  <Node name="Services" expanded="True" />
+                </Node>
+              </Node>
+            </Node>
+            <Node name="RestFulASPNET.Tests" expanded="True">
+              <Node name="Features" expanded="True" />
+            </Node>
+          </Node>
         </State>
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.RestFulASPNET PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
