@@ -14,7 +14,7 @@ Project Detail
 - Example Structure MVC
 - Exception Handle
 - Generic Response
-- Unit test with xUnit
+- Unit test with xUnit & Moq
 - EF Migration with MS SQL server
 
 
