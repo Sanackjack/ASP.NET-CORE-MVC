@@ -46,7 +46,7 @@ namespace RestFulASPNET.Features.Users.Services
                 Age = user.Age
             };
 
-            return new GenericResponse(new StatusResponse("0", "success"), userResponse);
+            return new GenericResponse(new StatusResponse(), userResponse);
 
         }
 

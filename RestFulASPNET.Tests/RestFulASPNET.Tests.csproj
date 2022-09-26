@@ -19,6 +19,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Moq" Version="4.18.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
     <None Remove="Features\Users\" />
     <None Remove="Features\Users\Controllers\" />
     <None Remove="Features\Users\Services\" />
+    <None Remove="Moq" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\.editorconfig" />
