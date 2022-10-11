@@ -33,11 +33,18 @@ namespace RestFulASPNET.Features.Users.Services
         public GenericResponse GetUserById(string id)
         {
 
+            throw new ServiceNotFoundException("test", "user not found");
+
+
             User user = repository.GetUserById(Int32.Parse(id));
 
             if (user == null)
             {
-                throw new ServiceNotFoundException(ExceptionCode.NOTFOUND_EXCEPTION, "user not found");
+                // throw new ServiceNotFoundException(ExceptionCode.NOTFOUND_EXCEPTION, "user not found");
+              
+               return null;
+
+                    //
             }
 
             UserResponseModel userResponse = new UserResponseModel

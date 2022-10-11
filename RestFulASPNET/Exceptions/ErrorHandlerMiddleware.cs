@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using RestFulASPNET.Constants;
 using RestFulASPNET.models;
 using System;
 using System.Collections.Generic;
@@ -43,9 +44,13 @@ namespace RestFulASPNET.Exceptions
                         response.StatusCode = (int)HttpStatusCode.RequestTimeout;
                         break;
                     case ServiceNotFoundException e:
+
+                        string a = ExceptionCode.ErrorCodes["AUTHENTICATION_FAIL"].message;
+
                         code = e.code;
                         msg = e.Message;
-                        response.StatusCode = (int)HttpStatusCode.NotFound;
+                        response.StatusCode = (int)HttpStatusCode.Forbidden;
+                       // HttpStatusCode.Accepted
                         break;
                     case ServiceSystemException e:
                         code = e.code;
