@@ -33,20 +33,25 @@ namespace RestFulASPNET.Features.Users.Services
         public GenericResponse GetUserById(string id)
         {
 
-            User user = repository.GetUserById(Int32.Parse(id));
+            throw new AuthenticateException(ResponseCodes.AUTHENTICATION_FAIL);
 
-            if (user == null)
-            {
-                throw new ServiceNotFoundException(ExceptionCode.NOTFOUND_EXCEPTION, "user not found");
-            }
+          ///  throw new AuthenticateException(ResponseCodes.AUTHENTICATION_FAIL.Code, ResponseCodes.AUTHENTICATION_FAIL.Message, ResponseCodes.AUTHENTICATION_FAIL.HttpStatus);
 
-            UserResponseModel userResponse = new UserResponseModel
-            {
-                Name = user.Name,
-                Age = user.Age
-            };
 
-            return new GenericResponse(new StatusResponse(), userResponse);
+            //User user = repository.GetUserById(Int32.Parse(id));
+
+            //if (user == null)
+            //{
+            //    throw new ServiceNotFoundException(ExceptionCode.NOTFOUND_EXCEPTION, "user not found");
+            //}
+
+            //UserResponseModel userResponse = new UserResponseModel
+            //{
+            //    Name = user.Name,
+            //    Age = user.Age
+            //};
+
+            //return new GenericResponse(new StatusResponse(), userResponse);
 
         }
 

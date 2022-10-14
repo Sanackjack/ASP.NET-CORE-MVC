@@ -7,13 +7,13 @@ namespace RestFulASPNET.models
 	{
         public String code { get; set; }
         public String message { get; set; }
-        public String remark { get; set; }
+        //public String remark { get; set; }
 
         public StatusResponse()
         {
             this.code = "0";
             this.message = "success";
-            this.remark = "";
+           // this.remark = "";
         }
 
 
@@ -21,14 +21,14 @@ namespace RestFulASPNET.models
 		{
 			this.code = code;
 			this.message = message;
-            this.remark = "";
+           // this.remark = "";
 		}
 
         public StatusResponse(String code, String message,String remark)
         {
             this.code = code;
             this.message = message;
-            this.remark = remark;
+          //  this.remark = remark;
         }
     }
 }

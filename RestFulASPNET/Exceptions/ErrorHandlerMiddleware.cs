@@ -7,6 +7,7 @@ using System.Net;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 using System.Threading.Tasks;
+using RestFulASPNET.Constants;
 namespace RestFulASPNET.Exceptions
 {
     public class ErrorHandlerMiddleware
@@ -26,39 +27,51 @@ namespace RestFulASPNET.Exceptions
             }
             catch (Exception error)
             {
-                String code = "A-999";
-                String msg = "";
+                String code = ResponseCodes.SYSTEM_ERROR.Code;
+                String msg = ResponseCodes.SYSTEM_ERROR.Message;
                 var response = context.Response;
                 response.ContentType = "application/json";
                 switch (error)
                 {
-                    case ServiceInvalidParamException e:
+                    case AuthenticateException e:
                         code = e.code;
-                        msg = e.Message;
-                        response.StatusCode = (int)HttpStatusCode.BadRequest;
+                        msg = String.IsNullOrEmpty(e.userName)
+                            ? e.message : String.Format("[{0}]{1}", e.userName, e.message);
+                        response.StatusCode = e.httpStatus;
                         break;
-                    case ServiceTimeoutException e:
+                    case ClientException e:
                         code = e.code;
-                        msg = e.Message;
-                        response.StatusCode = (int)HttpStatusCode.RequestTimeout;
+                        msg = e.message;
+                        response.StatusCode = e.httpStatus;
                         break;
-                    case ServiceNotFoundException e:
+                    case ValidationException e:
                         code = e.code;
-                        msg = e.Message;
-                        response.StatusCode = (int)HttpStatusCode.NotFound;
+                        msg = String.IsNullOrEmpty(e.massageDetailInValid)
+                            ? e.message: String.Format("{0} The problem is {1}",e.message,e.massageDetailInValid) ;
+                        response.StatusCode = e.httpStatus;
                         break;
-                    case ServiceSystemException e:
+                    case TokenException e:
                         code = e.code;
-                        msg = e.Message;
-                        response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        msg = e.message;
+                        response.StatusCode = e.httpStatus;
                         break;
-                    case KeyNotFoundException e: 
-                        // not found error from framework lib
-                        response.StatusCode = (int)HttpStatusCode.NotFound;
+                    case ExternalException e:
+                        code = e.code;
+                        msg = String.IsNullOrEmpty(e.partnerName)
+                            ? e.message : String.Format("[{0}]{1}", e.partnerName, e.message);
+                        response.StatusCode = e.httpStatus;
+                        break;
+                    case SystemException e:
+                        code = e.code;
+                        msg  = e.message;
+                        response.StatusCode = e.httpStatus;
+
+                        if (e.exception != null)
+                            _logger.LogError(e.exception, e.exception.Message);
                         break;
                     default:
                         _logger.LogError(error, error.Message);
-                        response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                        response.StatusCode = ResponseCodes.SYSTEM_ERROR.HttpStatus;
                         break;
                 }
                 var genericResponse = new GenericResponse(new StatusResponse(code, msg));

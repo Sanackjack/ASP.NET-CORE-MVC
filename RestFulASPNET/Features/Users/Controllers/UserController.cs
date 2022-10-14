@@ -7,6 +7,8 @@ using RestFulASPNET.Features.Users.Services;
 using RestFulASPNET.Features.Users.Models;
 using System.Reflection;
 using RestFulASPNET.models;
+using RestFulASPNET.Constants;
+using RestFulASPNET.Exceptions;
 
 namespace RestFulASPNET.Features.Users.Controllers
 {
@@ -25,6 +27,10 @@ namespace RestFulASPNET.Features.Users.Controllers
        // [ValidateActionParameters]
         public IActionResult GetUserById([FromRoute][Required] string id)
         {
+
+
+            throw new AuthenticateException(ResponseCodes.AUTHENTICATION_FAIL);
+
             GenericResponse viewModel = userService.GetUserById(id);
 
             if (viewModel != null)
